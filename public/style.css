@@ -1,0 +1,49 @@
+
+/*
+Nav Bar: 7795b4
+*/
+.nav {
+  background-color: #7795b4;
+  height: 7vh
+}
+.nav-btns {
+  font-size: 15px;
+  float: right;
+  margin-right: 5vw;
+  margin-top: 1em;
+  background-color: #aec0d2;
+}
+
+.nav-btns:hover {
+  background-color: #b9c8d8;
+}
+
+#content {
+  margin: 0 15vw 0 15vw;
+}
+
+#campuses {
+  margin: 0 auto 0 auto;
+  display: inline;
+}
+
+.campus {
+  margin: 50px;
+  margin: auto;
+  border: red dashed 2px;
+  width: 30vw;
+  /* display: flex; */
+}
+
+.campus-pics {
+  height: 200px;
+  width: 200px;
+}
+
+.th {
+  padding: 0 20px 0 20px;
+}
+
+#plus {
+  float: right;
+}
