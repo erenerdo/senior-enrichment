@@ -58,6 +58,12 @@ const studentData = [
     major: 'Biomedical Engineering',
     email: 'ryan@rutgers.edu'
   },
+  {
+    name: 'Sunny Poleplli',
+    campusId: 1,
+    major: 'Economics',
+    email: 'sunny@rutgers.edu'
+  }
 ];
 
 // Students Seeding
@@ -105,6 +111,6 @@ db
   })
   .finally(function () {
     db.close(); // uses promises but does not return a promise. https://github.com/sequelize/sequelize/pull/5776
-    console.log('connection closed'); // the connection eventually closes, we just manually do so to end the process quickly
+    console.log('connection closed, we out'); // the connection eventually closes, we just manually do so to end the process quickly
     return null; // silences bluebird warning about using non-returned promises inside of handlers.
   });
