@@ -11,7 +11,8 @@
 	const Campus = db.define('campus', {
 		name: {
 			type: Sequelize.STRING,
-			allowNull: false
+			allowNull: false,
+			unique: true
 		},
 		imageURL: {
 			type: Sequelize.STRING,
@@ -30,6 +31,7 @@
 		email: {
 			type: Sequelize.STRING,
 			allowNull: false,
+			unique: true
 		},
 		major: {
 			type: Sequelize.STRING
