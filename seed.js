@@ -97,8 +97,7 @@ const seed = () => {
     .then(() => createStudents());
 };
 
-db
-  .sync({ force: true })
+db.sync({ force: true })
   .then(function () {
     console.log('Dropped old data, that beat af data is gone');
     return seed();

@@ -1,32 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { fetchStudents } from '../reducers/student';
 
-export default class Students extends Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      students: []
-    };
-
-    this.deleteStudent = this.deleteStudent.bind(this);
-  }
-
-  componentDidMount() {
-    axios.get('/api/student')
-      .then(res => res.data)
-      .then(result => {
-        console.log(result); // response json from the server!
-        this.setState({ students: result });
-      });
-  }
-
-  deleteStudent () {
-
-  }
+class Students extends Component {
 
   render() {
+    const students = this.props.students;
+
     return (
       <div>
         <h3> Students </h3>
@@ -42,8 +24,7 @@ export default class Students extends Component {
               </tr>
             </thead>
             <tbody>
-              {
-                this.state.students.map((student) => (
+              { students.map((student) => (
                   <tr key={student.id}>
                     <th className="th">#{student.id}</th>
                     <th className="th">{student.name}</th>
@@ -52,7 +33,6 @@ export default class Students extends Component {
                     <th><button>x</button></th>
                   </tr>
                 ))
-
               }
             </tbody>
 
@@ -63,3 +43,12 @@ export default class Students extends Component {
   }
 }
 
+/* -----------------    CONTAINER     ------------------ */
+
+const mapStateToProps = (state) => {
+  return {students: state.students};
+};
+
+const mapDispatch = null;
+
+export default connect(mapStateToProps, mapDispatch)(Students);

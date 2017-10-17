@@ -38,6 +38,10 @@
 		}
 	});
 
+Campus.hasMany(Student, {
+	onDelete: 'cascade'
+});
+
 Student.belongsTo(Campus);
 
 module.exports = {
