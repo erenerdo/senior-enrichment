@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchStudents } from '../reducers/student';
+import StudentItem from './StudentItem';
 
 
 class Students extends Component {
@@ -17,21 +17,16 @@ class Students extends Component {
           <table>
             <thead>
               <tr>
-                <th className="th">#</th>
+                <th className="th">#ID Num</th>
                 <th className="th">Name</th>
                 <th className="th">Major</th>
                 <th className="th">Email</th>
+                <th className="th">Campus</th>
               </tr>
             </thead>
             <tbody>
               { students.map((student) => (
-                  <tr key={student.id}>
-                    <th className="th">#{student.id}</th>
-                    <th className="th">{student.name}</th>
-                    <th className="th">{student.major}</th>
-                    <th className="th">{student.email}</th>
-                    <th><button>x</button></th>
-                  </tr>
+                  <StudentItem key={student.id} student={student} />
                 ))
               }
             </tbody>
@@ -50,5 +45,6 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatch = null;
+
 
 export default connect(mapStateToProps, mapDispatch)(Students);

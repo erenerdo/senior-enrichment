@@ -39,7 +39,8 @@
 	});
 
 Campus.hasMany(Student, {
-	onDelete: 'cascade'
+	onDelete: 'cascade',
+	hooks: true
 });
 
 Student.belongsTo(Campus);
