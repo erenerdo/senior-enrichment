@@ -3,6 +3,7 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './Navbar';
 import Campus from './Campus';
 import Students from './Students';
+import AddStudent from './AddStudent';
 import { connect } from 'react-redux';
 import { fetchStudents} from '../reducers/student';
 import { fetchCampuses } from '../reducers/campus';
@@ -21,7 +22,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Campus} />
               <Route exact path="/students" component={Students} />
-              <Route exact path="/add-students" component={Students} />
+              <Route exact path="/add-students" component={AddStudent} />
             </Switch>
           </div>
         </div>

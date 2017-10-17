@@ -13,10 +13,10 @@ class Students extends Component {
       <div>
         <h3> Students </h3>
         <NavLink to="/add-students">
-          <button className="btn btn-default" id="plus">+</button>
+          <button className="btn btn-default" id="plus">Add Student +</button>
         </NavLink>
         <div id="students">
-          <table>
+          <table className="table">
             <thead>
               <tr>
                 <th className="th">#ID Num</th>
