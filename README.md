@@ -25,20 +25,20 @@ Use at least sequelize, express, react, and redux when creating this app. You ca
 ### DB Design
 
 - Students
-  * have profile info (e.g. name and email)
-  * must be assigned to a campus
+  * have profile info (e.g. name and email) - x
+  * must be assigned to a campus - x
 
 - Campuses
-  * have info such as a name and image
-  * can have many students assigned (may have none)
+  * have info such as a name and image - x
+  * can have many students assigned (may have none) - x
 
 ### Views and Functionality
 #### See Wireframes folder for visual
 
 - Navigation: as a user I...
-  * will land on **Home** by default
+  * will land on **Home** by default - x
   * can navigate to **Campuses** from **Home**
-  * can navigate to **Students** from **Home**
+  * can navigate to **Students** from **Home** - x
   * can navigate to view a **Single Campus** from **Campuses**
   * can navigate to view a **Single Student** from **Students**
   * can navigate to view a **Single Student** from **Single Campus** (for any student at that campus)
@@ -46,7 +46,7 @@ Use at least sequelize, express, react, and redux when creating this app. You ca
 
 - Views: as a user I...
   * see a list of all campuses on the **Campuses** view
-  * see a list of all students on the **Students** view
+  * see a list of all students on the **Students** view - x
   * see details about a campus on the **Single Campus** view, including that campus's students
   * see details about a student on the **Single Student** view, including that student's campus
 
@@ -56,9 +56,9 @@ Use at least sequelize, express, react, and redux when creating this app. You ca
   * can delete a campus
   * can create a student
   * can edit a student's info, including the campus that student is assigned to
-  * can delete a student
+  * can delete a student - x
 
-### Routes
+### Routes - x
 
 ```
 GET
@@ -88,7 +88,7 @@ DELETE
 
 ### How to test functionality without a frontend
 - GET: use your browser
-- POST / PUT / DELETE : 
+- POST / PUT / DELETE :
  - CLI (command line interface) with `curl`
    - e.g. `curl -H "Content-Type: application/json" -X POST -d '{"username":"kate","password":"1234"}' http://localhost:3000/api/login`
    - `-H`: headers. `-X`: verb. `-d`: data (must be of the type specified in headers). http://[address]:[port]/[route_path]

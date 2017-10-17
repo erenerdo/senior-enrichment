@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import StudentItem from './StudentItem';
 
@@ -12,7 +12,9 @@ class Students extends Component {
     return (
       <div>
         <h3> Students </h3>
-        <Link to="/add-students"><button id="plus">+</button></Link>
+        <NavLink to="/add-students">
+          <button className="btn btn-default" id="plus">+</button>
+        </NavLink>
         <div id="students">
           <table>
             <thead>
@@ -25,9 +27,9 @@ class Students extends Component {
               </tr>
             </thead>
             <tbody>
-              { students.map((student) => (
-                  <StudentItem key={student.id} student={student} />
-                ))
+              {students.map((student) => (
+                <StudentItem key={student.id} className="student-item" student={student} />
+              ))
               }
             </tbody>
 
@@ -41,7 +43,7 @@ class Students extends Component {
 /* -----------------    CONTAINER     ------------------ */
 
 const mapStateToProps = (state) => {
-  return {students: state.students};
+  return { students: state.students };
 };
 
 const mapDispatch = null;
