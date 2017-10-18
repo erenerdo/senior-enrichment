@@ -50,7 +50,7 @@ class SingleCampus extends Component {
         </div>
         <button onClick={this.removeCampusCallBack} id="campusBtn" className="btn btn-danger">Delete Campus</button>
         <div className="edit">
-          <EditCampus />
+          <EditCampus campusId={campus.id} history={this.props.history} />
         </div>
       </div>
     );

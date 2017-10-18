@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { updateCampusInfo } from '../reducers/campus';
 
 
 class EditCampus extends Component {
@@ -13,16 +14,14 @@ class EditCampus extends Component {
     event.preventDefault();
     const name = event.target.name.value;
     const imgURL = event.target.imgURL.value;
-    const newCampusInfo = {};
+    const newCampusInfo = {id: this.props.campusId};
 
     // Only Add Optional Props that are valid
     if (name) newCampusInfo.name = name;
-    if (imgURL) newCampusInfo.email = imgURL;
+    if (imgURL) newCampusInfo.imgURL = imgURL;
 
-
-    console.log('Info', newCampusInfo);
-    // this.props.updateCampus(newCampusInfo);
-    // this.props.history.push('/students');
+    this.props.updateCampus(newCampusInfo);
+    this.props.history.push('/campuses');
 
   }
 
@@ -34,11 +33,11 @@ class EditCampus extends Component {
         <form id="form" onSubmit={this.submitHandler}>
           <div className="form-group">
             <label htmlFor="name">Name</label>
-            <input name="name" type="text" className="form-control" aria-describedby="emailHelp" placeholder="What name bruh?"></input>
+            <input name="name" type="text" className="form-control" aria-describedby="emailHelp" placeholder="What do you want to change the name to bruh?"></input>
           </div>
           <div className="form-group">
             <label htmlFor="exampleInputEmail1">Image URL</label>
-            <input name="imgURL" type="text" className="form-control" placeholder="What image link fam?"></input>
+            <input name="imgURL" type="text" className="form-control" placeholder="What's the new image link fam?"></input>
           </div>
           <button type="submit" className="btn btn-primary">Submit</button>
         </form>
@@ -47,15 +46,13 @@ class EditCampus extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return { campuses: state.campuses };
-};
+const mapStateToProps = null;
 
 const mapDispatch = (dispatch) => {
   return {
-    // updateStudent: function (newInfo) {
-    //   dispatch(updateStudentInfo(newInfo));
-    // }
+    updateCampus: function (newInfo) {
+      dispatch(updateCampusInfo(newInfo));
+    }
   };
 };
 
