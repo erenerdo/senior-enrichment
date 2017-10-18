@@ -60,3 +60,12 @@ Nav Bar: 7795b4
   margin-left: 20px;
   float:right;
 }
+
+body {
+  background-color: #964046
+}
+
+#homeImg {
+  margin-top: 50px;
+  width: 100%;
+}

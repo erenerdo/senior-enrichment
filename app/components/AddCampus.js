@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { addNewStudent } from '../reducers/student';
+import { addNewCampus } from '../reducers/campus';
 
 class AddCampus extends Component {
 
@@ -18,7 +18,10 @@ class AddCampus extends Component {
       name,
       imageURL
     };
-    console.log(newCampus);
+    this.props.addCampus(newCampus);
+    setTimeout(() => {
+      this.props.history.push('/campuses');
+    }, 50);
   }
 
   render() {
@@ -46,9 +49,9 @@ const mapStateToProps = null;
 
 const mapDispatch = (dispatch) => {
   return {
-  //   addStudent: function (student) {
-  //     // dispatch(addNewCampus(student));
-  //   }
+    addCampus: function (campus) {
+      dispatch(addNewCampus(campus));
+    }
   };
 };
 

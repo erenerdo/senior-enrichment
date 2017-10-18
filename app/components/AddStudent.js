@@ -27,7 +27,7 @@ class AddStudent extends Component {
     console.log(this.props);
     setTimeout(() => {
       this.props.history.push('/students');
-    }, 50);
+    }, 500);
   }
 
   render() {

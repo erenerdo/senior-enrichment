@@ -9,8 +9,8 @@ class Home extends Component {
 
     return (
       <div>
-        <h3> Welcome To The Home Page </h3>
-        <h5> We out hereeee </h5>
+        <h3> Welcome To The Rutgers Home Page </h3>
+        <img id="homeImg" src="https://identity.rutgers.edu/sites/identity/files/scarlet_knight_logo_hp.gif"></img>
       </div>
     );
   }

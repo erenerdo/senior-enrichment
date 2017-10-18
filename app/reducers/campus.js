@@ -31,6 +31,9 @@ export default function reducer(prevState = initialCampusState, action) {
     case GET_CAMPUSES:
       newState = action.campuses;
       return newState;
+    case ADD_CAMPUS:
+      newState = newState.concat(action.campus);
+      return newState;
     default:
       return prevState;
   }
@@ -45,5 +48,14 @@ export const fetchCampuses = () => {
         const campuses = res.data;
         dispatch(getCampuses(campuses));
       });
+  };
+};
+
+export const addNewCampus = (campus) => {
+  return function thunk (dispatch) {
+    axios.post('api/campus', campus)
+    .then(res => {
+      dispatch(addCampus(res.data));
+    });
   };
 };
