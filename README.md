@@ -23,30 +23,30 @@ You are the CTO of the Margaret Hamilton Interplanetary Academy of JavaScript. C
 Use at least sequelize, express, react, and redux when creating this app. You can incorporate any additional libraries or tools you wish.
 
 ### DB Design
-
+<!--
 - Students
   * have profile info (e.g. name and email) - x
-  * must be assigned to a campus - x
+  * must be assigned to a campus - x -->
 
-- Campuses
+<!-- - Campuses
   * have info such as a name and image - x
-  * can have many students assigned (may have none) - x
+  * can have many students assigned (may have none) - x -->
 
 ### Views and Functionality
 #### See Wireframes folder for visual
 
 - Navigation: as a user I...
-  * will land on **Home** by default - x
-  * can navigate to **Campuses** from **Home**
-  * can navigate to **Students** from **Home** - x
+  <!-- * will land on **Home** by default - x -->
+  <!-- * can navigate to **Campuses** from **Home** -->
+  <!-- * can navigate to **Students** from **Home** - x -->
   * can navigate to view a **Single Campus** from **Campuses**
   * can navigate to view a **Single Student** from **Students**
   * can navigate to view a **Single Student** from **Single Campus** (for any student at that campus)
   * can navigate to view that student's **Single Campus** from **Single Student**
 
 - Views: as a user I...
-  * see a list of all campuses on the **Campuses** view
-  * see a list of all students on the **Students** view - x
+  <!-- * see a list of all campuses on the **Campuses** view  -->
+  <!-- * see a list of all students on the **Students** view - x -->
   * see details about a campus on the **Single Campus** view, including that campus's students
   * see details about a student on the **Single Student** view, including that student's campus
 
@@ -54,13 +54,13 @@ Use at least sequelize, express, react, and redux when creating this app. You ca
   * can create a campus
   * can edit a campus's info, including adding/removing a student to/from that campus
   * can delete a campus
-  * can create a student
+  <!-- * can create a student -->
   * can edit a student's info, including the campus that student is assigned to
-  * can delete a student - x
+  <!-- * can delete a student - x -->
 
 ### Routes - x
 
-```
+<!-- ```
 GET
 - all campuses
 - a campus by id
@@ -84,7 +84,7 @@ PUT
 DELETE
 - a campus
 - a student
-```
+``` -->
 
 ### How to test functionality without a frontend
 - GET: use your browser

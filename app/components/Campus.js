@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
@@ -9,7 +9,11 @@ class Campuses extends Component {
     const campuses = this.props.campuses;
     return (
       <div>
-        <h3> Campuses </h3>
+        <h3> Campuses
+        <NavLink to="/add-campus">
+            <button id="campusBtn" className="btn btn-default">AddCampus +</button>
+          </NavLink>
+        </h3>
         <div id="campuses">
           {
             campuses.map((campus, index) => {
@@ -30,7 +34,7 @@ class Campuses extends Component {
 /* -----------------    CONTAINER     ------------------ */
 
 const mapStateToProps = (state) => {
-  return {campuses: state.campuses};
+  return { campuses: state.campuses };
 };
 
 const mapDispatch = null;

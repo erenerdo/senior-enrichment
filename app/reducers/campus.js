@@ -7,13 +7,19 @@ const initialCampusState = [];
 /* -----------------    ACTION TYPES ------------------ */
 
 const GET_CAMPUSES = 'GET_CAMPUSES';
+const ADD_CAMPUS = 'ADD_CAMPUS';
 
 /* ------------   ACTION CREATORS     ------------------ */
 
-export function getCampuses(campuses) {
+export const getCampuses = (campuses) => {
   const action = { type: GET_CAMPUSES, campuses: campuses };
   return action;
-}
+};
+
+export const addCampus = (campus) => {
+  const action = { type: ADD_CAMPUS, campus: campus};
+  return action;
+};
 
 /* ------------       REDUCER     ------------------ */
 

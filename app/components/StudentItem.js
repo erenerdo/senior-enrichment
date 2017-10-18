@@ -20,9 +20,8 @@ class StudentItem extends React.Component {
   render() {
     const student = this.props.student;
     const campuses = this.props.campuses;
-    const campusIndex = +student.campusId - 1;
-    const campus = campuses[campusIndex];
-    console.log('Campus', campus);
+    const campusId = +student.campusId;
+    const campus = campuses.find((camp) => camp.id === campusId) ;
     return (
       <tr key={student.id}>
         <th className="th">#{student.id}</th>
