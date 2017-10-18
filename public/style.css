@@ -29,12 +29,16 @@ Nav Bar: 7795b4
 
 .campus {
   margin: 1vw;
-  border: red dashed 2px;
+  border: black solid 2px;
   width: 30vw;
   display: inline-block;
+  text-align: center;
   /* display: flex; */
 }
 
+.campus:hover {
+  background: #b8d2ed;
+}
 .campus-pics {
   height: 200px;
   width: 200px;
