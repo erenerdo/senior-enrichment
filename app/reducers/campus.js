@@ -1,18 +1,15 @@
 import axios from 'axios';
 
 /* -----------------    INITIAL STATE ------------------ */
-
 const initialCampusState = [];
 
 /* -----------------    ACTION TYPES ------------------ */
-
 const GET_CAMPUSES = 'GET_CAMPUSES';
 const ADD_CAMPUS = 'ADD_CAMPUS';
 const REMOVE_CAMPUS = 'REMOVE_CAMPUS';
 const UPDATE_CAMPUS = 'UPDATE_CAMPUS';
 
 /* ------------   ACTION CREATORS     ------------------ */
-
 export const getCampuses = (campuses) => {
   const action = { type: GET_CAMPUSES, campuses: campuses };
   return action;
@@ -29,12 +26,12 @@ export const removeCampus = (campusId) => {
 };
 
 export const updateCampus = (updatedCampus) => {
-  const action = { type: UPDATE_CAMPUS, updatedCampus};
+  const action = { type: UPDATE_CAMPUS, updatedCampus };
   console.log('Update Campus Action', action);
   return action;
 };
-/* ------------       REDUCER     ------------------ */
 
+/* ------------       REDUCER     ------------------ */
 export default function reducer(prevState = initialCampusState, action) {
   let newState = prevState;
 
@@ -82,7 +79,7 @@ export const addNewCampus = (campus) => {
 };
 
 export const deleteCampus = (campusId) => {
-  return function thunk (dispatch) {
+  return function thunk(dispatch) {
     dispatch(removeCampus(campusId));
     axios.delete(`api/campus/${campusId}`)
       .catch(() => console.log(`Removing campus unsuccesful`));
@@ -90,13 +87,13 @@ export const deleteCampus = (campusId) => {
 };
 
 export const updateCampusInfo = (newCampusInfo) => {
-  return function thunk (dispatch) {
+  return function thunk(dispatch) {
     axios.put(`api/campus/${newCampusInfo.id}`, newCampusInfo)
-    .then(res => {
-      const updatedCampusInfo = res.data[1][0]; // wtf sequelize, y u do this to me
-      console.log('Thunk', updatedCampusInfo);
-      console.log('Update Action', updateCampus(updatedCampusInfo));
-      dispatch(updateCampus(updatedCampusInfo));
-    });
+      .then(res => {
+        const updatedCampusInfo = res.data[1][0]; // wtf sequelize, y u do this to me
+        console.log('Thunk', updatedCampusInfo);
+        console.log('Update Action', updateCampus(updatedCampusInfo));
+        dispatch(updateCampus(updatedCampusInfo));
+      });
   };
 };

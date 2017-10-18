@@ -1,11 +1,9 @@
 import axios from 'axios';
 
 /* -----------------    INITIAL STATE ------------------ */
-
 const initialStudentState = [];
 
 /* -----------------    ACTION TYPES ------------------ */
-
 const GET_STUDENTS = 'GET_STUDENTS';
 const REMOVE_STUDENT = 'REMOVE_STUDENT';
 const ADD_STUDENT = 'ADD_STUDENT';
@@ -13,7 +11,6 @@ const UPDATE_STUDENT = 'UPDATE_STUDENT';
 const REFRESH_STUDENT = 'REFRESH_STUDENT';
 
 /* ------------   ACTION CREATORS     ------------------ */
-
 export const getStudents = (students) => {
   const action = { type: GET_STUDENTS, students: students };
   return action;
@@ -35,12 +32,11 @@ export const updateStudent = (newStudentInfo) => {
 };
 
 export const refreshStudent = (campusId) => {
-  const action = { type: REFRESH_STUDENT, id: campusId};
+  const action = { type: REFRESH_STUDENT, id: campusId };
   return action;
 };
 
 /* ------------       REDUCER     ------------------ */
-
 export default function reducer(prevState = initialStudentState, action) {
 
   let newState = prevState;
@@ -60,7 +56,7 @@ export default function reducer(prevState = initialStudentState, action) {
       newState = newState.concat(action.newStudentInfo);
       return newState;
     case REFRESH_STUDENT:
-    newState = newState.filter(student => student.campusId !== action.id);
+      newState = newState.filter(student => student.campusId !== action.id);
       return newState;
     default:
       return prevState;
@@ -68,7 +64,6 @@ export default function reducer(prevState = initialStudentState, action) {
 }
 
 /* ------------   THUNK CREATORS     ------------------ */
-
 export const fetchStudents = () => {
   return function thunk(dispatch) {
     axios.get('/api/student')
@@ -80,7 +75,7 @@ export const fetchStudents = () => {
 };
 
 export const deleteStudent = (studentId) => {
-  return function thunk (dispatch) {
+  return function thunk(dispatch) {
     dispatch(removeStudent(studentId));
     axios.delete(`api/student/${studentId}`)
       .catch(() => console.log(`Removing student unsuccesful`));
@@ -100,17 +95,17 @@ export const addNewStudent = (student) => {
 export const updateStudentInfo = (newStudentInfo) => {
   return function thunk(dispatch) {
     axios.put(`api/student/${newStudentInfo.id}`, newStudentInfo)
-    .then((res) => {
-      // Wtf am i even doing bruh
-      // How tf does this work
-      const updatedInfo = res.data[1][0];
-      dispatch(updateStudent(updatedInfo));
-    });
+      .then((res) => {
+        // Wtf am i even doing bruh
+        // How tf does this work
+        const updatedInfo = res.data[1][0];
+        dispatch(updateStudent(updatedInfo));
+      });
   };
 };
 
 export const refreshStudentState = (campusId) => {
-    return function thunk (dispatch) {
-      dispatch(refreshStudent(campusId));
-    };
+  return function thunk(dispatch) {
+    dispatch(refreshStudent(campusId));
+  };
 };
