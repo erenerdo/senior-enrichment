@@ -7,7 +7,9 @@ import StudentItem from './StudentItem';
 class Students extends Component {
 
   render() {
-    const students = this.props.students;
+    let students = this.props.students;
+    // Sort array so they display in correct order based off student id
+    students = students.sort((a, b) => a.id > b.id);
 
     return (
       <div>

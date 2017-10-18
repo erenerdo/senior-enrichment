@@ -21,7 +21,9 @@ class SingleCampus extends Component {
 
   render() {
     const campus = this.props.campus;
-    const students = this.props.students;
+    let students = this.props.students;
+    // Sort array so they display in correct order based off student id
+    students = students.sort((a, b) => a.id > b.id);
     if (!campus || !students) return null;
     return (
       <div>
