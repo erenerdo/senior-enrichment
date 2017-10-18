@@ -7,7 +7,6 @@ class Campuses extends Component {
 
   render() {
     const campuses = this.props.campuses;
-    console.log(campuses);
     return (
       <div>
         <h3> Campuses </h3>

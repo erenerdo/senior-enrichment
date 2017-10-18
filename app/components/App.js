@@ -4,6 +4,7 @@ import Navbar from './Navbar';
 import Campus from './Campus';
 import Students from './Students';
 import AddStudent from './AddStudent';
+import Home from './Home';
 import { connect } from 'react-redux';
 import { fetchStudents} from '../reducers/student';
 import { fetchCampuses } from '../reducers/campus';
@@ -20,9 +21,10 @@ class App extends Component {
           <Navbar />
           <div id="content">
             <Switch>
-              <Route exact path="/" component={Campus} />
-              <Route exact path="/students" component={Students} />
-              <Route exact path="/add-students" component={AddStudent} />
+              <Route exact path="/" component={Home} />
+              <Route path="/campuses" component={Campus} />
+              <Route path="/students" component={Students} />
+              <Route path="/add-students" component={AddStudent} />
             </Switch>
           </div>
         </div>

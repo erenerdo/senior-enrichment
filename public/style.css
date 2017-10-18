@@ -24,14 +24,14 @@ Nav Bar: 7795b4
 
 #campuses {
   margin: 0 auto 0 auto;
-  display: inline;
+  /* display: inline-block; */
 }
 
 .campus {
-  margin: 50px;
-  margin: auto;
+  margin: 1vw;
   border: red dashed 2px;
   width: 30vw;
+  display: inline-block;
   /* display: flex; */
 }
 
