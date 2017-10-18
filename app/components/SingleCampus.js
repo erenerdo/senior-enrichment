@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import StudentItem from './StudentItem';
+import EditCampus from './EditCampus';
 import { deleteCampus } from '../reducers/campus';
 import { refreshStudentState } from '../reducers/student';
 import { connect } from 'react-redux';
@@ -11,7 +12,7 @@ class SingleCampus extends Component {
     this.removeCampusCallBack = this.removeCampusCallBack.bind(this);
   }
 
-  removeCampusCallBack (event) {
+  removeCampusCallBack(event) {
     event.stopPropagation();
     console.log('ID', this.props.campus.id);
     this.props.removeCampus(this.props.campus.id);
@@ -47,7 +48,10 @@ class SingleCampus extends Component {
             </tbody>
           </table>
         </div>
-        <button onClick={this.removeCampusCallBack}id="campusBtn" className="btn btn-danger">Delete Campus</button>
+        <button onClick={this.removeCampusCallBack} id="campusBtn" className="btn btn-danger">Delete Campus</button>
+        <div className="edit">
+          <EditCampus />
+        </div>
       </div>
     );
   }

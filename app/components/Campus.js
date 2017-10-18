@@ -19,7 +19,7 @@ class Campuses extends Component {
             campuses.map((campus) => {
               return (
                 <NavLink className="campusLink" key={campus.id} to={`/campuses/${campus.id}`}>
-                  <div key={campus.id} className="campus">
+                  <div key={campus.id} className="campus rounded">
                     <h3 >{campus.name}</h3>
                     <img src={campus.imageURL} className="campus-pics"></img>
                   </div>

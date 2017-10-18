@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { updateStudentInfo } from '../reducers/student';
 // import { addNewStudent } from '../reducers/student';
@@ -33,7 +32,7 @@ class EditStudent extends Component {
   render() {
     const campuses = this.props.campuses;
     return (
-      <div id="edit">
+      <div className="edit">
         <h3 className="formHeader">Edit Student Form</h3>
         <h4>Please enter the information you wish to update</h4>
         <form id="form" onSubmit={this.submitHandler}>
