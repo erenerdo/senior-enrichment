@@ -28,20 +28,18 @@ class Students extends Component {
               </tr>
             </thead>
             <tbody>
-              {students.map((student) => (
-                <StudentItem key={student.id} className="student-item" student={student} />
-              ))
+              {
+                students.map((student) => (
+                  <StudentItem key={student.id} className="student-item" student={student} />
+                ))
               }
             </tbody>
-
           </table>
         </div>
       </div>
     );
   }
 }
-
-/* -----------------    CONTAINER     ------------------ */
 
 const mapStateToProps = (state) => {
   return { students: state.students };

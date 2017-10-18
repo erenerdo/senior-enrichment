@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { deleteStudent } from '../reducers/student';
@@ -21,7 +21,7 @@ class StudentItem extends React.Component {
     const campuses = this.props.campuses;
     if (!student || !campuses) return null;
     const campusId = +student.campusId;
-    const campus = campuses.find((camp) => camp.id === campusId) ;
+    const campus = campuses.find((camp) => camp.id === campusId);
     return (
       <tr key={student.id}>
         <th className="th">#{student.id}</th>
@@ -30,17 +30,20 @@ class StudentItem extends React.Component {
         <th className="th">{student.major}</th>
         <th className="th">{student.email}</th>
         <th className="th">{campus && campus.name}</th>
-        <th><button
+        <th>
+          <button
             onClick={this.removeStudentCallBack}
             className="btn btn-default"
-        >x</button></th>
+          >x
+          </button>
+        </th>
       </tr>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  return {campuses: state.campuses};
+  return { campuses: state.campuses };
 };
 
 const mapDispatchToProps = { deleteStudent };

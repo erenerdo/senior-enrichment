@@ -4,9 +4,6 @@ import EditStudent from './EditStudent';
 import { NavLink } from 'react-router-dom';
 
 class StudentDetail extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
 

@@ -23,7 +23,6 @@ class SingleCampus extends Component {
     const campus = this.props.campus;
     const students = this.props.students;
     if (!campus || !students) return null;
-    // console.log('prop states', campus, students);
     return (
       <div>
         <h1>{campus && campus.name}</h1>
@@ -41,9 +40,10 @@ class SingleCampus extends Component {
               </tr>
             </thead>
             <tbody>
-              {students.map((student) => (
-                <StudentItem key={student.id} className="student-item" student={student} />
-              ))
+              {
+                students.map((student) => (
+                  <StudentItem key={student.id} className="student-item" student={student} />
+                ))
               }
             </tbody>
           </table>
@@ -56,7 +56,6 @@ class SingleCampus extends Component {
     );
   }
 }
-
 
 const mapStateToProps = (state, ownProps) => {
   const paramId = Number(ownProps.match.params.id);
