@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import StudentItem from './StudentItem';
 import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 
 class SingleCampus extends Component {

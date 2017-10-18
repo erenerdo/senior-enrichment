@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import EditStudent from './EditStudent';
+import { NavLink } from 'react-router-dom';
 
 class StudentDetail extends Component {
   constructor(props) {
@@ -33,7 +34,7 @@ class StudentDetail extends Component {
               <th className="th">{student.name}</th>
               <th className="th">{student.major}</th>
               <th className="th">{student.email}</th>
-              <th className="th">{campus && campus.name}</th>
+              <th className="th"><NavLink className="campusLink" to={`/campuses/${campus.id}`}>{campus && campus.name}</NavLink></th>
             </tr>
           </tbody>
         </table>
