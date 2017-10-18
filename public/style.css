@@ -69,3 +69,6 @@ body {
   margin-top: 50px;
   width: 100%;
 }
+.view {
+  align-content: center;
+}

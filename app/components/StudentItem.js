@@ -25,7 +25,8 @@ class StudentItem extends React.Component {
     const campus = campuses.find((camp) => camp.id === campusId) ;
     return (
       <tr key={student.id}>
-        <th className="th"><NavLink to={`students/${student.id}`}>#{student.id}</NavLink></th>
+        <th className="th">#{student.id}</th>
+        <th className="th"><NavLink to={`students/${student.id}`}><button className="btn btn-default" id="view">View</button></NavLink></th>
         <th className="th">{student.name}</th>
         <th className="th">{student.major}</th>
         <th className="th">{student.email}</th>
