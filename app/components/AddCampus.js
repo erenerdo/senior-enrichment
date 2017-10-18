@@ -3,13 +3,12 @@ import { connect } from 'react-redux';
 import { addNewCampus } from '../reducers/campus';
 
 class AddCampus extends Component {
-
   constructor(props) {
     super(props);
     this.submitHandler = this.submitHandler.bind(this);
   }
 
-  submitHandler (event) {
+  submitHandler(event) {
     event.preventDefault();
     const name = event.target.name.value;
     const imageURL = event.target.imgURL.value;
@@ -19,9 +18,7 @@ class AddCampus extends Component {
       imageURL
     };
     this.props.addCampus(newCampus);
-    setTimeout(() => {
-      this.props.history.push('/campuses');
-    }, 50);
+    this.props.history.push('/campuses');
   }
 
   render() {
@@ -32,7 +29,7 @@ class AddCampus extends Component {
         <form id="form" onSubmit={this.submitHandler}>
           <div className="form-group">
             <label htmlFor="name">Name</label>
-            <input name="name" type="text" className="form-control"  aria-describedby="emailHelp" placeholder="What name bruh?"></input>
+            <input name="name" type="text" className="form-control" aria-describedby="emailHelp" placeholder="What name bruh?"></input>
           </div>
           <div className="form-group">
             <label htmlFor="exampleInputEmail1">Image URL</label>

@@ -14,7 +14,7 @@ class EditCampus extends Component {
     event.preventDefault();
     const name = event.target.name.value;
     const imgURL = event.target.imgURL.value;
-    const newCampusInfo = {id: this.props.campusId};
+    const newCampusInfo = { id: this.props.campusId };
 
     // Only Add Optional Props that are valid
     if (name) newCampusInfo.name = name;
@@ -26,7 +26,6 @@ class EditCampus extends Component {
   }
 
   render() {
-    // const campus = this.props.campus;
     return (
       <div>
         <h3 className="formHeader"> Campus Edit Form </h3>

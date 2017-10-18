@@ -91,7 +91,6 @@ export const addNewStudent = (student) => {
   return function thunk(dispatch) {
     axios.post('api/student', student)
       .then((response) => {
-        console.log(response);
         dispatch(addStudent(response.data));
       })
       .catch(() => console.log(`Adding student: ${student.name} unsuccesful`));

@@ -10,13 +10,13 @@ class EditStudent extends Component {
     this.submitHandler = this.submitHandler.bind(this);
   }
 
-  submitHandler (event) {
+  submitHandler(event) {
     event.preventDefault();
     const name = event.target.name.value;
     const email = event.target.email.value;
     const major = event.target.major.value;
     const campusId = Number(event.target.campus.value);
-    const newStudentInfo = {campusId, id: this.props.id};
+    const newStudentInfo = { campusId, id: this.props.id };
 
     // Only Add Optional Props that are valid
     if (name) newStudentInfo.name = name;
@@ -66,7 +66,7 @@ class EditStudent extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {campuses: state.campuses};
+  return { campuses: state.campuses };
 };
 
 const mapDispatch = (dispatch) => {

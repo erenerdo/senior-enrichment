@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import axios from 'axios';
+
 
 class Campuses extends Component {
 
@@ -33,13 +33,10 @@ class Campuses extends Component {
   }
 }
 
-/* -----------------    CONTAINER     ------------------ */
-
 const mapStateToProps = (state) => {
   return { campuses: state.campuses };
 };
 
 const mapDispatch = null;
-
 
 export default connect(mapStateToProps, mapDispatch)(Campuses);

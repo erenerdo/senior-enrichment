@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addNewStudent } from '../reducers/student';
 
@@ -10,7 +9,7 @@ class AddStudent extends Component {
     this.submitHandler = this.submitHandler.bind(this);
   }
 
-  submitHandler (event) {
+  submitHandler(event) {
     event.preventDefault();
     const name = event.target.name.value;
     const email = event.target.email.value;
@@ -24,10 +23,8 @@ class AddStudent extends Component {
       email
     };
     this.props.addStudent(newStudent);
-    console.log(this.props);
-    setTimeout(() => {
-      this.props.history.push('/students');
-    }, 500);
+    this.props.history.push('/students');
+
   }
 
   render() {
@@ -66,7 +63,7 @@ class AddStudent extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {campuses: state.campuses};
+  return { campuses: state.campuses };
 };
 
 const mapDispatch = (dispatch) => {
@@ -76,6 +73,5 @@ const mapDispatch = (dispatch) => {
     }
   };
 };
-
 
 export default connect(mapStateToProps, mapDispatch)(AddStudent);

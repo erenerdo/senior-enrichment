@@ -9,14 +9,15 @@ import StudentDetail from './StudentDetail';
 import SingleCampus from './SingleCampus';
 import Home from './Home';
 import { connect } from 'react-redux';
-import { fetchStudents} from '../reducers/student';
+import { fetchStudents } from '../reducers/student';
 import { fetchCampuses } from '../reducers/campus';
 
 class App extends Component {
 
-  componentDidMount () {
+  componentDidMount() {
     this.props.fetchInitialData();
   }
+
   render() {
     return (
       <Router>
@@ -39,10 +40,10 @@ class App extends Component {
     );
   }
 }
+
 const mapStateToProps = null;
 
 const mapDispatch = (dispatch) => {
-
   return {
     fetchInitialData: function () {
       dispatch(fetchStudents());
@@ -50,6 +51,5 @@ const mapDispatch = (dispatch) => {
     }
   };
 };
-
 
 export default connect(mapStateToProps, mapDispatch)(App);
