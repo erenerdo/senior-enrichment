@@ -46,7 +46,6 @@ routes.delete('/:id', (req, res, next) => {
     res.json(result);
   })
   .catch(next);
-
 });
 
 module.exports = routes;

@@ -27,7 +27,6 @@ export const removeCampus = (campusId) => {
 
 export const updateCampus = (updatedCampus) => {
   const action = { type: UPDATE_CAMPUS, updatedCampus };
-  console.log('Update Campus Action', action);
   return action;
 };
 
@@ -65,7 +64,8 @@ export const fetchCampuses = () => {
       .then((res) => {
         const campuses = res.data;
         dispatch(getCampuses(campuses));
-      });
+      })
+      .catch(() => console.log('Fetching campuses unsuccesful'));
   };
 };
 
@@ -74,7 +74,8 @@ export const addNewCampus = (campus) => {
     axios.post('api/campus', campus)
       .then(res => {
         dispatch(addCampus(res.data));
-      });
+      })
+      .catch(() => console.log('Adding new campus unsuccesful'));
   };
 };
 
@@ -94,6 +95,7 @@ export const updateCampusInfo = (newCampusInfo) => {
         console.log('Thunk', updatedCampusInfo);
         console.log('Update Action', updateCampus(updatedCampusInfo));
         dispatch(updateCampus(updatedCampusInfo));
-      });
+      })
+      .catch(() => console.log('Updating campus unsuccesful'));
   };
 };

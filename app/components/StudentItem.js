@@ -22,6 +22,7 @@ class StudentItem extends React.Component {
     if (!student || !campuses) return null;
     const campusId = +student.campusId;
     const campus = campuses.find((camp) => camp.id === campusId);
+
     return (
       <tr key={student.id}>
         <th className="th">#{student.id}</th>

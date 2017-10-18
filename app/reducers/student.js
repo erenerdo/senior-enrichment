@@ -70,7 +70,8 @@ export const fetchStudents = () => {
       .then(res => {
         const students = res.data;
         dispatch(getStudents(students));
-      });
+      })
+      .catch(() => console.log(`Fetching students unsuccesful`));
   };
 };
 
@@ -78,7 +79,7 @@ export const deleteStudent = (studentId) => {
   return function thunk(dispatch) {
     dispatch(removeStudent(studentId));
     axios.delete(`api/student/${studentId}`)
-      .catch(() => console.log(`Removing student unsuccesful`));
+      .catch(() => console.log(`Deleting student unsuccesful`));
   };
 };
 
@@ -88,7 +89,7 @@ export const addNewStudent = (student) => {
       .then((response) => {
         dispatch(addStudent(response.data));
       })
-      .catch(() => console.log(`Adding student: ${student.name} unsuccesful`));
+      .catch(() => console.log(`Adding new student unsuccesful`));
   };
 };
 
@@ -100,7 +101,8 @@ export const updateStudentInfo = (newStudentInfo) => {
         // How tf does this work
         const updatedInfo = res.data[1][0];
         dispatch(updateStudent(updatedInfo));
-      });
+      })
+      .catch(() => console.log(`Updating new student unsuccesful`));
   };
 };
 

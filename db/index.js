@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 const debug = require('debug')('sql');
 const chalk = require('chalk');
 const Sequelize = require('sequelize');
