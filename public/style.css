@@ -3,7 +3,7 @@
 Nav Bar: 7795b4
 */
 .nav {
-  background-color:#918a8a;
+  background-color:#5F6A72;
   height: 6vh
 }
 .nav-btns {
@@ -37,7 +37,7 @@ Nav Bar: 7795b4
 }
 
 .campus:hover {
-  background: #b8d2ed;
+  background: #5F6A72;
 }
 .campus-pics {
   height: 200px;
@@ -62,7 +62,7 @@ Nav Bar: 7795b4
 }
 
 body {
-  background-color: #964046
+  background-color: #CC0033;
 }
 
 #homeImg {

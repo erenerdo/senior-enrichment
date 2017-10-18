@@ -58,7 +58,7 @@ class EditStudent extends Component {
               }
             </select>
           </div>
-          <button type="submit" className="btn btn-primary">Submit</button>
+          <button type="submit" className="btn btn-secondary">Submit</button>
         </form>
       </div>
     );

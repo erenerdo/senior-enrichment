@@ -39,7 +39,7 @@ class EditCampus extends Component {
             <label htmlFor="exampleInputEmail1">Image URL</label>
             <input name="imgURL" type="text" className="form-control" placeholder="What's the new image link fam?"></input>
           </div>
-          <button type="submit" className="btn btn-primary">Submit</button>
+          <button type="submit" className="btn btn-secondary">Submit</button>
         </form>
       </div>
     );
