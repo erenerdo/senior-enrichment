@@ -14,13 +14,12 @@ class StudentItem extends React.Component {
     const { deleteStudent, student } = this.props;
     event.stopPropagation();
     deleteStudent(student.id);
-    this.props.history.push('/students');
   }
 
   render() {
     const student = this.props.student;
-    if (!student) return;
     const campuses = this.props.campuses;
+    if (!student || !campuses) return null;
     const campusId = +student.campusId;
     const campus = campuses.find((camp) => camp.id === campusId) ;
     return (

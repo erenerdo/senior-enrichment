@@ -1,45 +1,54 @@
 import React, { Component } from 'react';
 import StudentItem from './StudentItem';
+import { deleteCampus } from '../reducers/campus';
+import { refreshStudentState } from '../reducers/student';
 import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 
 
 class SingleCampus extends Component {
   constructor(props) {
     super(props);
+    this.removeCampusCallBack = this.removeCampusCallBack.bind(this);
+  }
+
+  removeCampusCallBack (event) {
+    event.stopPropagation();
+    console.log('ID', this.props.campus.id);
+    this.props.removeCampus(this.props.campus.id);
+    this.props.history.push('/campuses');
   }
 
   render() {
     const campus = this.props.campus;
     const students = this.props.students;
     if (!campus || !students) return null;
-    console.log(campus, students);
+    // console.log('prop states', campus, students);
     return (
       <div>
-      <h1>{campus && campus.name}</h1>
-      <h3> Students </h3>
-      <div id="students">
-        <table className="table">
-          <thead>
-            <tr>
-              <th className="th">#ID Num</th>
-              <th className="th">Student Detail</th>
-              <th className="th">Name</th>
-              <th className="th">Major</th>
-              <th className="th">Email</th>
-              <th className="th">Campus</th>
-            </tr>
-          </thead>
-          <tbody>
-            {students.map((student) => (
-              <StudentItem key={student.id} className="student-item" student={student} />
-            ))
-            }
-          </tbody>
-
-        </table>
+        <h1>{campus && campus.name}</h1>
+        <h3> Students </h3>
+        <div id="students">
+          <table className="table">
+            <thead>
+              <tr>
+                <th className="th">#ID Num</th>
+                <th className="th">Student Detail</th>
+                <th className="th">Name</th>
+                <th className="th">Major</th>
+                <th className="th">Email</th>
+                <th className="th">Campus</th>
+              </tr>
+            </thead>
+            <tbody>
+              {students.map((student) => (
+                <StudentItem key={student.id} className="student-item" student={student} />
+              ))
+              }
+            </tbody>
+          </table>
+        </div>
+        <button onClick={this.removeCampusCallBack}id="campusBtn" className="btn btn-danger">Delete Campus</button>
       </div>
-    </div>
     );
   }
 }
@@ -59,6 +68,13 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const mapDispatchToProps = null;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    removeCampus: function (campusId) {
+      dispatch(deleteCampus(campusId));
+      dispatch(refreshStudentState(campusId));
+    }
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleCampus);

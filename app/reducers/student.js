@@ -10,6 +10,7 @@ const GET_STUDENTS = 'GET_STUDENTS';
 const REMOVE_STUDENT = 'REMOVE_STUDENT';
 const ADD_STUDENT = 'ADD_STUDENT';
 const UPDATE_STUDENT = 'UPDATE_STUDENT';
+const REFRESH_STUDENT = 'REFRESH_STUDENT';
 
 /* ------------   ACTION CREATORS     ------------------ */
 
@@ -33,6 +34,11 @@ export const updateStudent = (newStudentInfo) => {
   return action;
 };
 
+export const refreshStudent = (campusId) => {
+  const action = { type: REFRESH_STUDENT, id: campusId};
+  return action;
+};
+
 /* ------------       REDUCER     ------------------ */
 
 export default function reducer(prevState = initialStudentState, action) {
@@ -53,6 +59,9 @@ export default function reducer(prevState = initialStudentState, action) {
       newState = newState.filter(student => student.id !== action.newStudentInfo.id);
       newState = newState.concat(action.newStudentInfo);
       return newState;
+    case REFRESH_STUDENT:
+    newState = newState.filter(student => student.campusId !== action.id);
+      return newState;
     default:
       return prevState;
   }
@@ -71,10 +80,10 @@ export const fetchStudents = () => {
 };
 
 export const deleteStudent = (studentId) => {
-  return function thunk(dispatch) {
+  return function thunk (dispatch) {
     dispatch(removeStudent(studentId));
     axios.delete(`api/student/${studentId}`)
-      .catch(() => console.log(`Removing student: ${studentId} unsuccesful`));
+      .catch(() => console.log(`Removing student unsuccesful`));
   };
 };
 
@@ -101,4 +110,8 @@ export const updateStudentInfo = (newStudentInfo) => {
   };
 };
 
-
+export const refreshStudentState = (campusId) => {
+    return function thunk (dispatch) {
+      dispatch(refreshStudent(campusId));
+    };
+};

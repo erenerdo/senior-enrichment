@@ -14,7 +14,8 @@ class StudentDetail extends Component {
     const campuses = this.props.campuses;
     if (!student || !campuses) return null;
     const campusId = +student.campusId;
-    const campus = campuses.find((camp) => camp.id === campusId) ;
+    const campus = campuses.find((camp) => camp.id === campusId);
+    if (!campus) return null;
     return (
       <div>
         <h1>{student && student.name}</h1>
