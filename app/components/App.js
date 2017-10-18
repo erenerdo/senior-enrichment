@@ -5,6 +5,7 @@ import Campus from './Campus';
 import Students from './Students';
 import AddStudent from './AddStudent';
 import AddCampus from './AddCampus';
+import StudentDetail from './StudentDetail';
 import Home from './Home';
 import { connect } from 'react-redux';
 import { fetchStudents} from '../reducers/student';
@@ -23,8 +24,9 @@ class App extends Component {
           <div id="content">
             <Switch>
               <Route exact path="/" component={Home} />
+              <Route path="/students/:id" component={StudentDetail} />
               <Route path="/campuses" component={Campus} />
-              <Route path="/students" component={Students} />
+              <Route exact path="/students" component={Students} />
               <Route path="/add-students" component={AddStudent} />
               <Route path="/add-campus" component={AddCampus} />
             </Switch>

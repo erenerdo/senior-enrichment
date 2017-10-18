@@ -1,0 +1,57 @@
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import StudentItem from './StudentItem';
+
+class StudentDetail extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    const student = this.props.student;
+    const campuses = this.props.campuses;
+    if (!student || !campuses) return;
+    const campusId = +student.campusId;
+    const campus = campuses.find((camp) => camp.id === campusId) ;
+    return (
+      <div>
+        <h1>{student && student.name}</h1>
+        <table className="table">
+          <thead>
+            <tr>
+              <th className="th">#ID Num</th>
+              <th className="th">Name</th>
+              <th className="th">Major</th>
+              <th className="th">Email</th>
+              <th className="th">Campus</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr key={student.id}>
+              <th className="th">#{student.id}</th>
+              <th className="th">{student.name}</th>
+              <th className="th">{student.major}</th>
+              <th className="th">{student.email}</th>
+              <th className="th">{campus.name}</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = (state, ownProps) => {
+  const paramId = Number(ownProps.match.params.id);
+  const student = state.students.find((ele) => {
+    return ele.id === paramId;
+  });
+  return {
+    student,
+    campuses: state.campuses
+  };
+};
+
+const mapDispatchToProps = null;
+
+export default connect(mapStateToProps, mapDispatchToProps)(StudentDetail);

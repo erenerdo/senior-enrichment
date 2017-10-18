@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { deleteStudent } from '../reducers/student';
 
@@ -14,17 +14,18 @@ class StudentItem extends React.Component {
     const { deleteStudent, student } = this.props;
     event.stopPropagation();
     deleteStudent(student.id);
-
+    this.props.history.push('/students');
   }
 
   render() {
     const student = this.props.student;
+    if (!student) return;
     const campuses = this.props.campuses;
     const campusId = +student.campusId;
     const campus = campuses.find((camp) => camp.id === campusId) ;
     return (
       <tr key={student.id}>
-        <th className="th">#{student.id}</th>
+        <th className="th"><NavLink to={`students/${student.id}`}>#{student.id}</NavLink></th>
         <th className="th">{student.name}</th>
         <th className="th">{student.major}</th>
         <th className="th">{student.email}</th>
