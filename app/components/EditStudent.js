@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { addNewStudent } from '../reducers/student';
+import { updateStudentInfo } from '../reducers/student';
+// import { addNewStudent } from '../reducers/student';
 
-class AddStudent extends Component {
+class EditStudent extends Component {
 
   constructor(props) {
     super(props);
@@ -16,33 +17,33 @@ class AddStudent extends Component {
     const email = event.target.email.value;
     const major = event.target.major.value;
     const campusId = Number(event.target.campus.value);
+    const newStudentInfo = {campusId, id: this.props.id};
 
-    const newStudent = {
-      name,
-      campusId,
-      major,
-      email
-    };
-    this.props.addStudent(newStudent);
-    console.log(this.props);
-    setTimeout(() => {
-      this.props.history.push('/students');
-    }, 500);
+    // Only Add Optional Props that are valid
+    if (name) newStudentInfo.name = name;
+    if (email) newStudentInfo.email = email;
+    if (major) newStudentInfo.major = major;
+
+    console.log('Info', newStudentInfo);
+    this.props.updateStudent(newStudentInfo);
+    this.props.history.push('/students');
+
   }
 
   render() {
     const campuses = this.props.campuses;
     return (
-      <div>
-        <h3 className="formHeader"> New Student Form </h3>
+      <div id="edit">
+        <h3 className="formHeader">Edit Student Form</h3>
+        <h4>Please enter the information you wish to update</h4>
         <form id="form" onSubmit={this.submitHandler}>
           <div className="form-group">
             <label htmlFor="name">Name</label>
-            <input name="name" type="text" className="form-control" id="inputName" aria-describedby="emailHelp" placeholder="What name bruh?" required></input>
+            <input name="name" type="text" className="form-control" id="inputName" aria-describedby="emailHelp" placeholder="What name bruh?"></input>
           </div>
           <div className="form-group">
             <label htmlFor="exampleInputEmail1">Email address</label>
-            <input name="email" type="email" className="form-control" id="exampleInputEmail1" placeholder="How do I hit you up?" required></input>
+            <input name="email" type="email" className="form-control" id="exampleInputEmail1" placeholder="How do I hit you up?"></input>
           </div>
           <div className="form-group">
             <label htmlFor="major">Major</label>
@@ -50,7 +51,7 @@ class AddStudent extends Component {
           </div>
           <div className="form-group">
             <label htmlFor="exampleSelect1">Campus</label>
-            <select name="campus" className="form-control" id="exampleSelect1" required>
+            <select name="campus" className="form-control" id="exampleSelect1">
               {
                 campuses.map((campus) => {
                   return (<option key={`${campus.id}`} value={`${campus.id}`}>{`${campus.name}`}</option>);
@@ -71,11 +72,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    addStudent: function (student) {
-      dispatch(addNewStudent(student));
+    updateStudent: function (newInfo) {
+      dispatch(updateStudentInfo(newInfo));
     }
   };
 };
 
 
-export default connect(mapStateToProps, mapDispatch)(AddStudent);
+export default connect(mapStateToProps, mapDispatch)(EditStudent);

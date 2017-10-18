@@ -3,7 +3,7 @@
 Nav Bar: 7795b4
 */
 .nav {
-  background-color: #7795b4;
+  background-color:#918a8a;
   height: 7vh
 }
 .nav-btns {
@@ -71,4 +71,8 @@ body {
 }
 .view {
   align-content: center;
+}
+
+#edit {
+  margin-top: 50px;
 }

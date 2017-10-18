@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import StudentItem from './StudentItem';
+import EditStudent from './EditStudent';
 
 class StudentDetail extends Component {
   constructor(props) {
@@ -8,9 +8,10 @@ class StudentDetail extends Component {
   }
 
   render() {
+
     const student = this.props.student;
     const campuses = this.props.campuses;
-    if (!student || !campuses) return;
+    if (!student || !campuses) return null;
     const campusId = +student.campusId;
     const campus = campuses.find((camp) => camp.id === campusId) ;
     return (
@@ -32,10 +33,11 @@ class StudentDetail extends Component {
               <th className="th">{student.name}</th>
               <th className="th">{student.major}</th>
               <th className="th">{student.email}</th>
-              <th className="th">{campus.name}</th>
+              <th className="th">{campus && campus.name}</th>
             </tr>
           </tbody>
         </table>
+        <EditStudent id={student.id} history={this.props.history} />
       </div>
     );
   }

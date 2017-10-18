@@ -20,7 +20,7 @@ class Students extends Component {
             <thead>
               <tr>
                 <th className="th">#ID Num</th>
-                <th className="th">Detail</th>
+                <th className="th">Student Detail</th>
                 <th className="th">Name</th>
                 <th className="th">Major</th>
                 <th className="th">Email</th>

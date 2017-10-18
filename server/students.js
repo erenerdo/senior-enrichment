@@ -41,7 +41,7 @@ routes.put('/:id', (req, res, next) => {
 routes.delete('/:id', (req, res, next) => {
   const StudentId = req.params.id;
   console.log(StudentId);
-  Student.destroy({where: {id: StudentId}})
+  Student.destroy({where: {id: StudentId}, returning: true})
   .then((result) => {
     res.json(result);
   })
