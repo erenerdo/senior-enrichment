@@ -33,7 +33,7 @@ routes.put('/:id', (req, res, next) => {
 
   Student.update(req.body, {where: {id: StudentId}, returning: true})
   .then((camp) => {
-    res.json({camp});
+    res.json(camp);
   })
   .catch(next);
 });

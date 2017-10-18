@@ -16,12 +16,14 @@ class Campuses extends Component {
         </h3>
         <div id="campuses">
           {
-            campuses.map((campus, index) => {
+            campuses.map((campus) => {
               return (
-                <div key={index} className="campus">
-                  <h3 >{campus.name}</h3>
-                  <img src={campus.imageURL} className="campus-pics"></img>
-                </div>
+                <NavLink className="campusLink" key={campus.id} to={`/campuses/${campus.id}`}>
+                  <div key={campus.id} className="campus">
+                    <h3 >{campus.name}</h3>
+                    <img src={campus.imageURL} className="campus-pics"></img>
+                  </div>
+                </NavLink>
               );
             })
           }

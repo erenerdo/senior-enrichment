@@ -94,7 +94,8 @@ export const updateStudentInfo = (newStudentInfo) => {
     axios.put(`api/student/${newStudentInfo.id}`, newStudentInfo)
     .then((res) => {
       // Wtf am i even doing bruh
-      const updatedInfo = res.data.camp[1][0];
+      // How tf does this work
+      const updatedInfo = res.data[1][0];
       dispatch(updateStudent(updatedInfo));
     });
   };

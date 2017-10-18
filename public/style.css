@@ -76,3 +76,8 @@ body {
 #edit {
   margin-top: 50px;
 }
+
+.campusLink {
+  color:inherit;
+  text-decoration: none;
+}
