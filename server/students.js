@@ -22,7 +22,6 @@ routes.get('/:id', (req, res, next) => {
 routes.post('/', (req, res, next) => {
   Student.create(req.body)
   .then((camp) => {
-    console.log('Post', camp.data);
     res.json(camp);
   })
   .catch(next);

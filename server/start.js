@@ -16,7 +16,7 @@ module.exports = app
   .use(bodyParser.json())
   .use(express.static(resolve(__dirname, '..', 'public'))) // Serve static files from ../public
   .use('/api', require('./api')) // Serve our api
-  .use((err, req, res, next) => {
+  .use((err, req, res, next) => { // error handling middleware
     console.error(err.stack);
     res.status(err.status || 500).send(err.message || 'Internal Error');
   })
