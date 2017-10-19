@@ -1,5 +1,4 @@
 const routes = require('express').Router();
-
 const {Campus} = require('../db/models');
 
 routes.get('/', (req, res, next) => {
@@ -40,7 +39,7 @@ routes.put('/:id', (req, res, next) => {
 
 routes.delete('/:id', (req, res, next) => {
   const campusId = req.params.id;
-  console.log(campusId);
+
   Campus.destroy({where: {id: campusId}})
   .then((result) => {
     res.json(result);

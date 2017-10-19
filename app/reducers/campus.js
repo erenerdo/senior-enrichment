@@ -92,8 +92,6 @@ export const updateCampusInfo = (newCampusInfo) => {
     axios.put(`api/campus/${newCampusInfo.id}`, newCampusInfo)
       .then(res => {
         const updatedCampusInfo = res.data[1][0]; // wtf sequelize, y u do this to me
-        console.log('Thunk', updatedCampusInfo);
-        console.log('Update Action', updateCampus(updatedCampusInfo));
         dispatch(updateCampus(updatedCampusInfo));
       })
       .catch(() => console.log('Updating campus unsuccesful'));

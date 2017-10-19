@@ -13,12 +13,12 @@ class EditCampus extends Component {
   submitHandler(event) {
     event.preventDefault();
     const name = event.target.name.value;
-    const imgURL = event.target.imgURL.value;
+    const imageURL = event.target.imgURL.value;
     const newCampusInfo = { id: this.props.campusId };
 
     // Only Add Optional Props that are valid
     if (name) newCampusInfo.name = name;
-    if (imgURL) newCampusInfo.imgURL = imgURL;
+    if (imageURL) newCampusInfo.imageURL = imageURL;
 
     this.props.updateCampus(newCampusInfo);
     this.props.history.push('/campuses');
